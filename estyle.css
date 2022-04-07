@@ -1,0 +1,55 @@
+
+*{ box-sizing: border-box;
+
+}
+
+body{
+    background-color: #E5E5E5;
+}
+
+.Game-Title{
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 56px;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    color: #75B79E;
+}
+
+.first-line {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px 280px;
+    border: 1px solid red;
+}
+
+.cards{
+    width: 117px;
+    height: 146px;
+    border-radius: 5px;
+    background: #A7E9AF;
+    border: 1px solid #99CEA8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+
+}
+
+.cards .img{
+    width: 100px;
+    height: 100px;  
+}
+
+
+//*.second-line{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 116px;
+    margin-right: 116px;
+    margin-bottom: 10px;
+}*/
