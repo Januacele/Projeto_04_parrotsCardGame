@@ -1,10 +1,12 @@
 
 *{ box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 
 }
 
 body{
-    background-color: #E5E5E5;
+    background-color: #EEF9BF;
 }
 
 .Game-Title{
@@ -18,30 +20,34 @@ body{
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    max-width: 1000px;
+    height: 350px;
+    position: relative;
+    margin: 40px auto;
     border: 1px solid red;
 }
 
-.card{
-    width: 9.75%;
+.cards{
+    width: 117px;
     height: 146px;
     border-radius: 5px;
+    position: absolute;
     background: #A7E9AF;
     border: 1px solid #99CEA8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-
 }
 
-.cards .img{
+.face{
     width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+}
+
+.back{
+    background-image: url("./Images/front.png");
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 @media (max-width: 768px) {
