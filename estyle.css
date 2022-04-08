@@ -41,13 +41,32 @@ body{
     height: 100%;
     position: absolute;
     border-radius: 5px;
+    transition: all 1000ms;
+    backface-visibility: hidden;
 }
 
 .back{
     background-image: url("./Images/front.png");
-    background-size: 90%;
+    background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.back.flipped{
+transform: rotateY(180deg);
+}
+
+.front{
+    background-image: url("./Images/bobrossparrot.gif");
+    transform: rotateY(-180deg);
+}
+
+.front.flipped{
+    transform: rotateY(0deg);
+}
+
+.cards:hover{
+    box-shadow: 0 0 10px #aaa;
 }
 
 @media (max-width: 768px) {
