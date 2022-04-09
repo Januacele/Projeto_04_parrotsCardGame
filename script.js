@@ -1,17 +1,30 @@
-5(function (){
+(function(){
 
+    let images = [];
+
+    for (let i = 0; i<14; i++){
+        let img = {
+            src: "./Images/"+ i + ".gif",
+            id: i % 7
+        };
+        images.push(img);
+    }
+   
     startGame();
 
     //Distribuição das cartas 
 
     function startGame(){
+        let frontFaces = document.getElementsByClassName("front");
+
         for(let i=0; i<14; i++){
-            const card = document.getElementById("card"+i);                       //encontra cada carta pelo Id concatenando com o número pré-definido pra cada uma;
+            const card = document.querySelector("#card"+i);                       //encontra cada carta pelo Id concatenando com o número pré-definido pra cada uma;
             card.style.left = i % 7 === 0 ? 5 + "px" : i % 7 * 144 + 5 + "px";    // muda o css da carta colocando dando um left de 5px na carta de indice 0 e um distanciamento de 144px entre as cartas que terão indice diferente de zero;
             card.style.top = i < 7 ? 5 + "px" : 180 + "px";                       // muda o css das cartas com índice de 0 a 6 (menor que 7) aplicando um top de 180px;
             
             card.addEventListener("click", flipCard, false);                      // Adição do evento click ao ser aplicada a função flipCard;
 
+            frontFaces[i].style.background = "url('" + images[i].src + "')";
         }
     }
 
