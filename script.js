@@ -7,14 +7,19 @@
             src: "./Images/"+ i + ".gif",
             id: i % 7
         };
+
         images.push(img);
     }
    
     startGame();
 
-    //Distribuição das cartas 
+    //Distribuição das cartas e Flip
 
     function startGame(){
+
+        images = randomSort(images);
+
+
         let frontFaces = document.getElementsByClassName("front");
 
         for(let i=0; i<14; i++){
@@ -24,8 +29,27 @@
             
             card.addEventListener("click", flipCard, false);                      // Adição do evento click ao ser aplicada a função flipCard;
 
-            frontFaces[i].style.background = "url('" + images[i].src + "')";
+            frontFaces[i].style.background = "url('" + images[i].src + "')";      //Adicionando as cartas do jogo pelo objeto Imagem fazendo interação pelo índice
+            frontFaces[i].setAttribute("id", images[i].id);
+            
         }
+    }
+
+    //Randomização das cartas
+
+    function randomSort(oldArray){
+
+        let newArray = [];
+        while(newArray.length !== oldArray.length){
+            let i = Math.floor(Math.random()*oldArray.length);
+
+            if(newArray.indexOf(oldArray[i]) < 0){
+                newArray.push(oldArray[i]);
+           }
+        }
+        
+        return newArray;
+        
     }
 
     //Virar Cartas
@@ -39,5 +63,5 @@
 
 
 
-}())
+})
 
