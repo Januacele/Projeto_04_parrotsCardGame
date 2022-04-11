@@ -1,6 +1,8 @@
 
 let cards = document.querySelectorAll('.card');
 
+let matches =0;
+let jogadas = 0;
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -50,16 +52,16 @@ while (Number(numberOfCards)%2 !== 0 || Number(numberOfCards) < 4 || Number(numb
 } 
 
 
-// Função para virar cartas 
+// Função para virar cartas e checar se as cartas viradas são iguais ou diferentes
 function flipCard() {
+  jogadas ++;
   if (lockBoard) return;
   this.classList.add('flip');
-
-// Checando se as cartas viradas são iguais ou diferentes
-if (!hasFlippedCard) {
-  hasFlippedCard = true;
-  firstCard = this;
-  return;
+   
+  if (!hasFlippedCard) {
+    hasFlippedCard = true;
+    firstCard = this;
+    return;
   }
 
   secondCard = this;
@@ -71,7 +73,7 @@ function checkForMatch() {
   if (firstCard.dataset.framework === secondCard.dataset.framework){
     disableCards();
     return;
-    }
+    } 
 
     unflipCards();
    
@@ -93,31 +95,35 @@ function unflipCards() {
     secondCard.classList.remove('flip'); 
     resetBoard();
   }, 1300);
+
   }
 
   function resetBoard() {
 
     [hasFlippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
+    
+  }
+
+  // Finalizando o jogo
+  function endGame() {
+    let totalIntens = document.querySelectorAll('.card')
+    let totalCartasViradas = document.querySelectorAll('.flip')
+    if (totalCartasViradas.length === totalIntens.length) {
+      alert("Você ganhou!")
+    }
+    console.log(totalIntens);
   }
 
   //Embaralhando as cartas
   (function shuffle() {
        cards.forEach(card => {
-         let ramdomPos = Math.floor(Math.random() * 12);
+         let ramdomPos = Math.floor(Math.random() * 14);
          card.style.order = ramdomPos;
        });
      })();
 
-
-
-
-    //let EndGame = prompt(String("Deseja jogar novamente? [sim/não]"));
-   // if (EndGame === 'sim'){
-    //  resetBoard();
-   // } else {
-    //  alert("Obrigado!")
-   // }
+   
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
