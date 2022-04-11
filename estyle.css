@@ -10,12 +10,13 @@ body{
 }
 
 .Game-Title{
+    width: 100%;
+    height: auto;
+    margin: 40px auto 47px auto;
     font-family: 'Roboto';
     font-weight: bold;
     font-size: 56px;
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
+    text-align: center;
     color: #75B79E;
 }
 
@@ -84,6 +85,10 @@ img{
     transform: rotateY(-180deg);
   }
 
+  .hidden{
+      display: none;
+  }
+
 @media (max-width: 768px) {
 	.container {
 		width: 100%;
@@ -107,5 +112,8 @@ img{
             justify-content: center;
             margin-top: 50px;
             margin-left: 120px;
+        }
+        h1{
+            font-size: 40px;
         }
 }
